@@ -1,0 +1,40 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "ignorePatterns": [
+    "node_modules/"
+  ],
+  "plugins": [
+    "prettier", "@typescript-eslint"
+  ],
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "tabWidth": 2,
+        "useTabs": false,
+        "printWidth": 80,
+        "trailingComma": "all",
+        "semi": false,
+        "singleQuote": true,
+        "jsxSingleQuote": false,
+        "arrowParens": "always",
+        "bracketSpacing": true,
+        "jsxBracketSameLine": false,
+        "endOfLine": "auto"
+      }
+    ]
+  },
+  "parserOptions": {
+    "parser": "@typescript-eslint/parser"
+  }
+}

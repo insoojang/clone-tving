@@ -63,7 +63,22 @@
   }
 }
 ```
-9. tailwind.config.js 수정
+09. .prettierrc 생성 및 세팅
+```text
+  {
+        "tabWidth": 4,
+        "useTabs": false,
+        "printWidth": 80,
+        "trailingComma": "all",
+        "semi": false,
+        "singleQuote": true,
+        "jsxSingleQuote": false,
+        "arrowParens": "always",
+        "bracketSpacing": true,
+        "jsxBracketSameLine": false
+      }
+```
+10. tailwind.config.js 수정
 ```text
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
@@ -73,11 +88,11 @@ module.exports = {
   plugins: [],
 }; 
 ```
-10. src/styles/Global.css에 tailwind 전체 import
+11. src/styles/Global.css에 tailwind 전체 import
 ```css
 @tailwind base;
 @tailwind components;
 @tailwind utilities; 
 ```
-11. Webstorm or Vscode 환경설정에서 eslint, prettier 적용
+12. Webstorm or Vscode 환경설정에서 eslint, prettier 적용
 
