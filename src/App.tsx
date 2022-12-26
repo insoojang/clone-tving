@@ -1,19 +1,10 @@
 import React from 'react'
-import { getMoviesUpcoming } from './service/api'
+import Router from './routes/Router'
 
 function App() {
   return (
     <div className="App">
-      <button
-        type="button"
-        onClick={() => {
-          getMoviesUpcoming(1).then((r) => {
-            console.log(r)
-          })
-        }}
-      >
-        hello2
-      </button>
+      <Router />
     </div>
   )
 }
