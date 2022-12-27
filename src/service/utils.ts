@@ -1,4 +1,4 @@
-export const makeImagePth = (id: string) => {
+export const makeImagePath = (id: string) => {
   return `https://image.tmdb.org/t/p/original/${id}`
 }
 

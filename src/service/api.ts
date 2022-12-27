@@ -3,7 +3,7 @@ import axios from 'axios'
 const REACT_APP_API_KEY = process.env.REACT_APP_API_KEY
 const BASE_URL = 'https://api.themoviedb.org/3'
 
-interface IMovie {
+export interface IMovie {
   id: number
   backdrop_path: string
   poster_path: string
@@ -14,7 +14,7 @@ interface IMovie {
 }
 
 export interface IGetMoviesResult {
-  result: IMovie[]
+  results: IMovie[]
 }
 
 export const getMoviesUpcoming = async (
