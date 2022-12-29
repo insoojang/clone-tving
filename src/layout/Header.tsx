@@ -5,6 +5,7 @@ import SearchIcon from '@mui/icons-material/Search'
 import CloseIcon from '@mui/icons-material/Close'
 import { useForm } from 'react-hook-form'
 import Input from '@mui/material/Input'
+import { Helmet } from 'react-helmet'
 
 const ariaLabel = { 'aria-label': 'description' }
 
@@ -55,6 +56,9 @@ const Header = () => {
 
   return (
     <React.Fragment>
+      <Helmet>
+        <title>인수</title>
+      </Helmet>
       <motion.div
         variants={bodyVariants}
         initial="top"
@@ -68,28 +72,32 @@ const Header = () => {
                 인수
               </span>
             </Link>
-            <Link to="/air" className="flex items-center">
+            <Link to="/air" className="flex items-center justify-center">
               <div className="w-8 h-8 bg-no-repeat bg-left bg-[url('https://www.tving.com/img/icon_menu_live.svg')]"></div>
-              <span
-                className={`${
-                  AirMatch?.pathname === '/air'
-                    ? 'text-gray-200'
-                    : 'text-gray-400'
-                } mr-5 font-bold sm:text-xl hover:text-gray-200 text-xs`}
-              >
-                실시간
-              </span>
+              <div>
+                <span
+                  className={`${
+                    AirMatch?.pathname === '/air'
+                      ? 'text-gray-200'
+                      : 'text-gray-400'
+                  } mr-5 font-bold sm:text-xl hover:text-gray-200 text-xs`}
+                >
+                  실시간
+                </span>
+              </div>
             </Link>
             <Link to="/tv">
-              <span
-                className={`${
-                  TVMatch?.pathname === '/tv'
-                    ? 'text-gray-200'
-                    : 'text-gray-400'
-                } mr-5 font-bold sm:text-xl hover:text-gray-200 text-xs`}
-              >
-                TV프로그램
-              </span>
+              <div className="flex items-center">
+                <span
+                  className={`${
+                    TVMatch?.pathname === '/tv'
+                      ? 'text-gray-200'
+                      : 'text-gray-400'
+                  } mr-5 font-bold sm:text-xl hover:text-gray-200 text-xs`}
+                >
+                  TV프로그램
+                </span>
+              </div>
             </Link>
           </div>
           <div className="flex items-center cursor-pointer xl:space-x-8">
