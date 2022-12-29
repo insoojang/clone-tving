@@ -96,3 +96,5 @@ module.exports = {
 ```
 12. Webstorm or Vscode 환경설정에서 eslint, prettier 적용
 
+### 결과물 
+![img.png](img.png)
