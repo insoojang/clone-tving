@@ -3,8 +3,9 @@ import { HashRouter, Route, Routes } from 'react-router-dom'
 import Home from '../components/Home'
 import Header from '../layout/Header'
 import Air from '../components/Air'
-import Tv from '../components/TV'
 import Movie from '../components/Movie'
+import Contents from '../components/Contents'
+import TV from '../components/TV'
 
 const Router = () => {
   return (
@@ -13,8 +14,9 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Air" element={<Air />} />
-        <Route path="/TV" element={<Tv />} />
+        <Route path="/TV" element={<TV />} />
         <Route path="/Movie" element={<Movie />} />
+        <Route path="/Contents/:id" element={<Contents />} />
       </Routes>
     </HashRouter>
   )
