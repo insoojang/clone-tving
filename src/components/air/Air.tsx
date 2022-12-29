@@ -7,9 +7,9 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos'
 const ArrayUrl = [
   'https://www.youtube.com/watch?v=Fn83vM8f1h8',
   'https://www.youtube.com/watch?v=TTLHd3IyErM',
-  'https://www.youtube.com/watch?v=TTLHd3IyErM',
-  'https://www.youtube.com/watch?v=TTLHd3IyErM',
-  'https://www.youtube.com/watch?v=TTLHd3IyErM',
+  'https://www.youtube.com/watch?v=vaoBI6b9FEo',
+  'https://www.youtube.com/watch?v=Ywdot01AYdA',
+  'https://www.youtube.com/watch?v=XW8qyFOPT7o',
 ]
 
 const Air = () => {

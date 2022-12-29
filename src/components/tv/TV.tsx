@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import { getTv, IGetTVResult } from '../../service/api'
 import { makeImagePath } from '../../service/utils'
 import Footer from '../../layout/Footer'
+import InfiniteScroll from 'react-infinite-scroller'
 
 const TV = () => {
   const { isLoading, data } = useQuery<IGetTVResult>('TV', () => getTv(1))
