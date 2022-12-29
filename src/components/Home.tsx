@@ -11,7 +11,7 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
-import Footer from './Footer'
+import Footer from '../layout/Footer'
 
 export const rowVars = {
   start: {

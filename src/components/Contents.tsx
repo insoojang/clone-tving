@@ -3,7 +3,7 @@ import { useQuery } from 'react-query'
 import { useNavigate, useParams } from 'react-router-dom'
 import { getMovieDetail, IGetMoviesDetail } from '../service/api'
 import { makeImagePath, nothingPoster } from '../service/utils'
-import Footer from './Footer'
+import Footer from '../layout/Footer'
 
 const Contents = () => {
   const movieId = useParams()

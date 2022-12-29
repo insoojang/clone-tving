@@ -4,7 +4,7 @@ import { useQuery } from 'react-query'
 import { useParams } from 'react-router-dom'
 import { getMovieTrailer, IGetMoviesTrailer } from '../service/api'
 import { makeTrailerPath } from '../service/utils'
-import Footer from './Footer'
+import Footer from '../layout/Footer'
 
 const Trailer = () => {
   const trailerID = useParams()

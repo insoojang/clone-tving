@@ -32,9 +32,21 @@ interface ITrailer {
   site: string
 }
 
+interface ITV {
+  id: number
+  backdrop_path: string
+  original_name: string
+  poster_path: string
+}
+
 export interface IGetMoviesTrailer {
   id: number
   results: ITrailer[]
+}
+
+export interface IGetTVResult {
+  page: number
+  results: ITV[]
 }
 
 export const getMoviesUpcoming = async (
@@ -43,19 +55,53 @@ export const getMoviesUpcoming = async (
   const { data } = await axios.get(
     `${BASE_URL}/movie/upcoming?api_key=${REACT_APP_API_KEY}&page=${number}`,
   )
-  return await data
+  return data
 }
 
 export const getMovieDetail = async (movieId: number) => {
   const { data } = await axios.get(
     `https://api.themoviedb.org/3/movie/${movieId}?api_key=${REACT_APP_API_KEY}`,
   )
-  return await data
+  return data
 }
 
 export const getMovieTrailer = async (movieId: number) => {
   const { data } = await axios.get(
     `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${REACT_APP_API_KEY}`,
   )
-  return await data
+  return data
+}
+export const getUpcoming = async (number?: number) => {
+  const { data } = await axios.get(
+    `${BASE_URL}/movie/upcoming?api_key=${REACT_APP_API_KEY}&page=${number}`,
+  )
+  return data
+}
+
+export const getTv = async (number?: number) => {
+  const { data } = await axios.get(
+    `${BASE_URL}/tv/popular?api_key=${REACT_APP_API_KEY}&page=${number}`,
+  )
+  return data
+}
+
+export const getTVDetail = async (tvId?: number) => {
+  const { data } = await axios.get(
+    `${BASE_URL}/tv/${tvId}?api_key=${REACT_APP_API_KEY}&language=ko-KR`,
+  )
+  return data
+}
+
+export const getTvTrailer = async (tvId?: number) => {
+  const { data } = await axios.get(
+    `${BASE_URL}/tv/${tvId}/videos?api_key=${REACT_APP_API_KEY}`,
+  )
+  return data
+}
+
+export const getSearch = async (query?: string) => {
+  const { data } = await axios.get(
+    `${BASE_URL}/search/multi?api_key=${REACT_APP_API_KEY}&query=${query}&page=1&include_adult=false`,
+  )
+  return data
 }
