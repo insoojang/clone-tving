@@ -6,6 +6,7 @@ import Air from '../components/Air'
 import Movie from '../components/Movie'
 import Contents from '../components/Contents'
 import TV from '../components/TV'
+import Trailer from '../components/Trailer'
 
 const Router = () => {
   return (
@@ -17,6 +18,7 @@ const Router = () => {
         <Route path="/TV" element={<TV />} />
         <Route path="/Movie" element={<Movie />} />
         <Route path="/Contents/:id" element={<Contents />} />
+        <Route path="/Contents/trailer/:id" element={<Trailer />} />
       </Routes>
     </HashRouter>
   )

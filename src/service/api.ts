@@ -27,6 +27,16 @@ export interface IGetMoviesDetail {
   runtime: number
 }
 
+interface ITrailer {
+  key: string
+  site: string
+}
+
+export interface IGetMoviesTrailer {
+  id: number
+  results: ITrailer[]
+}
+
 export const getMoviesUpcoming = async (
   number: number,
 ): Promise<IGetMoviesResult> => {
@@ -39,6 +49,13 @@ export const getMoviesUpcoming = async (
 export const getMovieDetail = async (movieId: number) => {
   const { data } = await axios.get(
     `https://api.themoviedb.org/3/movie/${movieId}?api_key=${REACT_APP_API_KEY}`,
+  )
+  return await data
+}
+
+export const getMovieTrailer = async (movieId: number) => {
+  const { data } = await axios.get(
+    `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${REACT_APP_API_KEY}`,
   )
   return await data
 }
