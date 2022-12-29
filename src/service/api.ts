@@ -17,11 +17,28 @@ export interface IGetMoviesResult {
   results: IMovie[]
 }
 
+export interface IGetMoviesDetail {
+  adult: boolean
+  backdrop_path: string
+  id: number
+  original_title: string
+  overview: string
+  poster_path: string
+  runtime: number
+}
+
 export const getMoviesUpcoming = async (
   number: number,
 ): Promise<IGetMoviesResult> => {
   const { data } = await axios.get(
     `${BASE_URL}/movie/upcoming?api_key=${REACT_APP_API_KEY}&page=${number}`,
+  )
+  return await data
+}
+
+export const getMovieDetail = async (movieId: number) => {
+  const { data } = await axios.get(
+    `https://api.themoviedb.org/3/movie/${movieId}?api_key=${REACT_APP_API_KEY}`,
   )
   return await data
 }

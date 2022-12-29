@@ -10,6 +10,8 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import Footer from './Footer'
 
 export const rowVars = {
   start: {
@@ -26,11 +28,17 @@ const Home = () => {
     getMoviesUpcoming(1),
   )
   const [index, setIndex] = useState(0)
+  const [mouseMoved, setMouseMoved] = useState(false)
   const onClick = (e: React.MouseEvent<HTMLInputElement>) => {
     const num = Number((e.currentTarget as HTMLInputElement).value)
     setIndex(num)
   }
-
+  const navigate = useNavigate()
+  const handleClick = (id: number) => {
+    if (!mouseMoved) {
+      navigate(`/contents/${id}`)
+    }
+  }
   const increaseIndex = () => {
     if (data) {
       const total = 4
@@ -81,7 +89,7 @@ const Home = () => {
                   exit="exit"
                   transition={{ type: 'tween', duration: 0.5 }}
                   key={index}
-                  className="  grid w-full absolute overflow-hidden"
+                  className="grid w-full absolute overflow-hidden"
                 >
                   {data?.results.slice(index, index + 1).map((movie) => {
                     return (
@@ -130,34 +138,39 @@ const Home = () => {
               <Dot index={index} onClick={onClick} />
             </div>
           </div>
-          <div className="bg-black w-full h-[50vh] flex flex-col  items-center justify-center">
+          <div className="bg-black w-full h-[55vh] flex flex-col  items-center justify-center">
             <div className="w-[93%] h-16 flex items-center">
               <span className="text-2xl font-bold text-cyan-100">
                 꼭 봐야하는 콘텐츠
               </span>
             </div>
-            <div className=" w-[93%]  h-full">
+            <div className=" w-[90%]  h-full">
               <Slider className="w-full h-full flex " {...settings}>
                 {data?.results.slice(6).map((movie) => {
                   return (
-                    <Link key={movie.id} to={`/contents/${movie.id}`}>
-                      <div className="flex w-full h-[360px] relative top-4">
-                        <motion.img
-                          className="w-[225px] rounded-xl h-[350px]"
-                          src={makeImagePath(
-                            movie.poster_path === null
-                              ? nothingPoster
-                              : movie.poster_path,
-                          )}
-                          whileHover={{ y: -10, transition: { delay: 0.1 } }}
-                        />
-                      </div>
-                    </Link>
+                    <div
+                      onMouseMove={() => setMouseMoved(true)}
+                      onMouseDown={() => setMouseMoved(false)}
+                      onMouseUp={() => handleClick(movie.id)}
+                      key={movie.id}
+                      className="flex w-full h-[360px] relative top-4"
+                    >
+                      <motion.img
+                        className="w-[220px] rounded-xl h-[350px]"
+                        src={makeImagePath(
+                          movie.poster_path === null
+                            ? nothingPoster
+                            : movie.poster_path,
+                        )}
+                        whileHover={{ y: -10, transition: { delay: 0.1 } }}
+                      />
+                    </div>
                   )
                 })}
               </Slider>
             </div>
           </div>
+          <Footer />
         </React.Fragment>
       )}
     </div>
